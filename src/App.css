@@ -13,7 +13,7 @@
 @media (max-width: 768px) {
   .first {
     padding: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
   }
 
   .grid-proyectos {
@@ -78,4 +78,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   gap: 1rem;
+}
+
+.is-sticky .navbar-menu nav {
+  top: 25vh;
+}
+
+.navbar-menu nav {
+  bottom: 10rem !important;
 }

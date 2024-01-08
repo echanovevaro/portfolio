@@ -95,7 +95,7 @@ function App() {
           className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
           onClick={() => setOpenMenu(false)}
         />
-        <nav className="fixed top-[20vh] right-0 flex flex-col w-5/6 max-w-sm py-8 px-8 bg-white border-r overflow-y-auto">
+        <nav className="fixed right-0 flex flex-col w-5/6 max-w-sm py-8 px-8 bg-white border-r overflow-y-auto">
           <div className="flex items-start justify-between">
             <ul className="flex flex-col gap-3">
               <li>
