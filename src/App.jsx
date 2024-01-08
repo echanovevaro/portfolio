@@ -388,6 +388,8 @@ function App() {
                 Tutorial oficial de NextJS 14 con autenticación y dashboard,
                 clientes, facturas, etc
               </p>
+              <p className="font-normal">Usuario: user@nextmail.com</p>
+              <p className="mb-3 font-normal">Password: 123456</p>
               <p className="mb-3 font-normal">
                 Tecnologías: ReactJS, NextJS 14, Next Auth, PostgreSQL.
               </p>
