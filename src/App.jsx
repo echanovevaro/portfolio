@@ -177,7 +177,7 @@ function App() {
         <ul className="p-6">
           <li className="mb-1">
             Diplomado en{" "}
-            <span className="text-sky-400">Arqiotectira de Interiores</span> por
+            <span className="text-sky-400">Arquitectura de Interiores</span> por
             la UPM.
           </li>
           <li className="mb-1">
