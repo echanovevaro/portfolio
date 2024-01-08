@@ -7,10 +7,6 @@ function App() {
   const [openMenu, setOpenMenu] = useState(false)
   const toggleClass = "is-sticky"
 
-  const openInNewTab = (url) => {
-    window.open(url, "_blank", "noreferrer")
-  }
-
   useEffect(() => {
     const listener = () => {
       if (window.scrollY > 0) {
@@ -51,7 +47,7 @@ function App() {
           </motion.h6>
         </div>
         <nav>
-          <div className="lg:hidden flex nav">
+          <div className="md:hidden flex nav">
             <button
               className="navbar-burger p-2"
               onClick={() => setOpenMenu((prev) => !prev)}
