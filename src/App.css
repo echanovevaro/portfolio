@@ -80,10 +80,10 @@
   gap: 1rem;
 }
 
-.is-sticky .navbar-menu nav {
+/* .is-sticky .navbar-menu nav {
   top: 25vh;
-}
+} */
 
-.navbar-menu nav {
+/* .navbar-menu nav {
   bottom: 10rem !important;
-}
+} */

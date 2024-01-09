@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import "./App.css"
 
@@ -90,85 +90,99 @@ function App() {
           </motion.ul>
         </nav>
       </section>
-      <div className={`navbar-menu relative z-50 ${openMenu ? "" : "hidden"}`}>
-        <div
-          className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
-          onClick={() => setOpenMenu(false)}
-        />
-        <nav className="fixed right-0 flex flex-col w-5/6 max-w-sm py-8 px-8 bg-white border-r overflow-y-auto">
-          <div className="flex items-start justify-between">
-            <ul className="flex flex-col gap-3">
-              <li>
-                <a
-                  href="#"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  inicio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#formacion"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  formación
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#tecnologias"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  tecnologías
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#proyectos"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  proyectos
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experiencia"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  experiencia
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contacto"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  contacto
-                </a>
-              </li>
-            </ul>
-            <button
-              className="navbar-close"
+      <AnimatePresence>
+        {openMenu && (
+          <div className={`navbar-menu relative z-50`}>
+            <div
+              className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
               onClick={() => setOpenMenu(false)}
+            />
+
+            <motion.nav
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              className="text-white fixed left-0 top-0 h-100 bottom-0 flex flex-col w-5/6 max-w-sm py-8 px-8 bg-white border-r overflow-y-auto bg-opacity-20 backdrop-blur"
             >
-              <svg
-                className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+              <div className="flex items-start justify-between">
+                <ul className="flex flex-col gap-3">
+                  <li>
+                    <a
+                      href="#"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      inicio
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#formacion"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      formación
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#tecnologias"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      tecnologías
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#proyectos"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      proyectos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#experiencia"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      experiencia
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contacto"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      contacto
+                    </a>
+                  </li>
+                </ul>
+                <button
+                  className="navbar-close"
+                  onClick={() => setOpenMenu(false)}
+                >
+                  <svg
+                    className="h-6 w-6 text-white cursor-pointer"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </motion.nav>
           </div>
-        </nav>
-      </div>
+        )}
+      </AnimatePresence>
       <section
         className="second"
         id="formacion"
