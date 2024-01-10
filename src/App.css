@@ -84,7 +84,7 @@
 }
 
 .grid-proyectos img {
-  filter: grayscale(100%);
+  filter: grayscale(40%);
   transition: 0.3s ease-in-out;
 }
 
