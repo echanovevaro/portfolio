@@ -9,10 +9,17 @@ function App() {
 
   useEffect(() => {
     const listener = () => {
-      if (window.scrollY > 0) {
+      let params = new URLSearchParams(window.location.hash.replace("#", ""))
+      if (window.scrollY > 0 && !ref.current.classList.contains(toggleClass)) {
         ref.current.classList.add(toggleClass)
-      } else {
+        if (params.size === 0) {
+          window.scrollTo(0, 1)
+        }
+      } else if (window.scrollY === 0) {
         ref.current.classList.remove(toggleClass)
+        if (params.size > 0) {
+          document.location.replace("/")
+        }
       }
     }
 
@@ -33,21 +40,22 @@ function App() {
           <motion.h1
             initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-4xl text-sky-400"
+            transition={{ duration: 0.5 }}
+            className="text-4xl text-sky-400 whitespace-nowrap"
           >
             alvaro riaño
           </motion.h1>
           <motion.h6
             initial={{ opacity: 0, x: -160 }}
             animate={{ opacity: 1, x: 20 }}
-            transition={{ delay: 0.5 }}
-            className="text-xl"
+            transition={{ delay: 0.7, duration: 0.5 }}
+            className="text-xl whitespace-nowrap"
           >
             &lt;desarrollador front end&gt;
           </motion.h6>
         </div>
         <nav>
-          <div className="md:hidden flex nav">
+          <div className="lg:hidden flex nav">
             <button
               className="navbar-burger p-2"
               onClick={() => setOpenMenu((prev) => !prev)}
@@ -64,10 +72,10 @@ function App() {
           </div>
 
           <motion.ul
-            className="md:flex text-base nav hidden"
+            className="lg:flex text-base nav hidden"
             initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
           >
             <li>
               <a href="#">inicio</a>
@@ -240,7 +248,7 @@ function App() {
           <div>CSS 3</div>
           <div>ReactJS</div>
           <div>NextJS</div>
-          <div>hooks</div>
+          <div>Hooks</div>
           <div>React Router</div>
           <div>Tanstack React Query</div>
           <div>Redux Toolkit</div>
@@ -330,7 +338,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <h5 className="mb-2 text-2xl tracking-tight">Photografy</h5>
+                <h5 className="mb-2 text-2xl tracking-tight">PhotograFy</h5>
               </a>
               <p className="mb-3 font-normal">
                 Encuentra y contrata un fotógrafo profesional o regístrate como
